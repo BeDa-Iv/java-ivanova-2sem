@@ -1,5 +1,6 @@
 import java.util.Arrays;
 public class TwoDimensionalArrayTask {
+
     public static char[][] createTable(int size, char symbol){
         char[][] table = new char[size][size];
         for (char[] row: table) {
@@ -27,5 +28,18 @@ public class TwoDimensionalArrayTask {
             row[0] = symbol;
             row[table.length - 1] = symbol;
         }
+    }
+
+    public static void main(String[] args) {
+        char[][] c = createTable(20, '.');
+        printTable(c);
+
+        System.out.println("============ Заполним строки: ==========");
+        fillFirstAndLastLines(c, '#');
+        printTable(c);
+
+        System.out.println("============ Заполним столбцы: =========");
+        fillFirstAndLastColumns(c, '#');
+        printTable(c);
     }
 }
