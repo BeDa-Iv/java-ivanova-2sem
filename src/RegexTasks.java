@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,6 +41,19 @@ public class RegexTasks {
         return count;
     }
 
+    public static void Task5(String inputFilePath, String outputFilePath) throws IOException {
+        String inputText = Files.readString(new File(inputFilePath).toPath(), StandardCharsets.UTF_8);
+        String regex = "(\\d+)";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(inputText);
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, String.valueOf(Integer.parseInt(matcher.group(1)) + 1));
+        }
+        matcher.appendTail(sb);
+        Files.writeString(new File(outputFilePath).toPath(), sb.toString(), StandardCharsets.UTF_8);
+    }
+
     public static void main(String[] args) {
         String email = "abcd__ef-g@m-ail.com";
         System.out.println("Paragraph 1:");
@@ -55,6 +72,13 @@ public class RegexTasks {
         String inputString4 = "кот КОТ мышь КоТ ПЕС МЫШЬкотМЫШЬ";
         System.out.println("Paragraph 4:");
         System.out.println(RegexTasks.Task4(inputString4));
+
+        try {
+            RegexTasks.Task5("InputTask5.txt", "OutputTask5.txt");
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
 
