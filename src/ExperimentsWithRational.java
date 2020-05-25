@@ -1,14 +1,15 @@
 public class ExperimentsWithRational {
     public static void main(String[] args) {
-        Rational ex1 = new Rational(5, 3);
-        Rational ex2 = new Rational(8, 2);
-        Rational ex3 = new Rational(-3, 5);
+        Rational ex1 = new Rational(9, 3);
+        Rational ex2 = new Rational(7, 2);
+        Rational ex3 = new Rational(-3, 11);
 
         System.out.println(ex1.toString());
         System.out.println(ex2.toString());
         System.out.println(ex3.toString());
 
         System.out.println(ex1.toDouble());
+        System.out.println(ex2.toDouble());
         System.out.println(ex3.toDouble());
 
         Rational r3 = new Rational(1, 3);
@@ -18,10 +19,10 @@ public class ExperimentsWithRational {
         //r2.addInPlace(r3);
         //System.out.println(r2.toString());
 
-        Rational p3 = new Rational(8, 9);
-        Rational p2 = new Rational(1, 9);
-        Rational p1 = p2.sub(p3);
-        System.out.println(p1.toString());
+        Rational k3 = new Rational(8, 9);
+        Rational k2 = new Rational(1, 9);
+        Rational k1 = k2.sub(k3);
+        System.out.println(k1.toString());
         //p2.subInPlace(p3);
         //System.out.println(p2.toString());
 
@@ -39,22 +40,19 @@ public class ExperimentsWithRational {
         //n2.divInPlace(n3);
         //System.out.println(n2.toString());
 
-        System.out.println(progression(1).toDouble());
-        System.out.println(progression(2).toDouble());
-        System.out.println(progression(3).toDouble());
-        System.out.println(progression(20).toDouble());
+        System.out.println(findSum(1));
+        System.out.println(findSum(7));
+        System.out.println(findSum(20));
 
         System.out.println(n3.getN());
         System.out.println(n3.getD());
     }
 
-    public static Rational progression(int n) {
-        Rational result = new Rational(0);
-        for (int i = 1; i <= n; i++) {
-            Rational r = new Rational(1, i);
-            //result.addInPlace(r);
-            result = Rational.add(result, r);
+    public static double findSum(int a) {
+        double res = 0;
+        for (int i = 1; i <= a; i++) {
+            res += (double) 1/i;
         }
-        return result;
+        return res;
     }
 }

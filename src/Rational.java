@@ -1,6 +1,6 @@
 public class Rational {
     private static final Rational ZERO = new Rational(0);
-    private static final Rational ONE = new Rational(1);
+    private static final Rational ONE = new Rational(1,1);
     private int n;
     private int d;
 
@@ -18,11 +18,6 @@ public class Rational {
 
     public static Rational div(Rational r1, Rational r2) {
         return new Rational(r1.n * r2.d, r2.n * r1.d);
-    }
-
-    private static int gcd(int m, int n) {
-        if (0 == n) { return m; }
-        else return gcd(n, m % n);
     }
 
     public Rational (int n, int d) {
@@ -45,11 +40,11 @@ public class Rational {
         this.d = 1;
     }
 
-    public long getN() {
+    public int getN() {
         return n;
     }
 
-    public long getD() {
+    public int getD() {
         return d;
     }
 
@@ -123,5 +118,10 @@ public class Rational {
         this.n = n;
         this.d = d;
     } */
+
+    private static int gcd(int m, int n) {
+        if (0 == n) { return m; }
+        else return gcd(n, m % n);
+    }
 
 }
