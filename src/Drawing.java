@@ -12,7 +12,6 @@ public class Drawing {
             for (int j = 0; j < n; j++)
                 picture[i][j] = symbol;
         }
-
     }
 
     public void print() {
@@ -30,18 +29,6 @@ public class Drawing {
                 System.out.print(picture[i][j] + "  ");
             }
             System.out.println();
-        }
-    }
-
-    public void drawVerticalLine(int x, char symbol) {
-        for (int i = 0; i < stolbets; i++) {
-            setPoint(i, x, symbol);
-        }
-    }
-
-    public void drawHorizontalLine(int y, char symbol) {
-        for (int i = 0; i < stroka; i++) {
-            setPoint(y, i, symbol);
         }
     }
 

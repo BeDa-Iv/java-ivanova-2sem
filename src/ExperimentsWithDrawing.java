@@ -6,10 +6,10 @@ public class ExperimentsWithDrawing {
         first.print();
 
         System.out.println("Paragraph 4.1:");
-        first.drawVerticalLine(5, 'x');
+        first.drawVerticalLine(5, 1, 3, '*' );
         first.print();
         System.out.println("Paragraph 4.2:");
-        first.drawHorizontalLine(1, 'y');
+        first.drawHorizontalLine(1, 2, 5, '*');
         first.print();
 
         System.out.println("Paragraph 5:");
@@ -19,7 +19,7 @@ public class ExperimentsWithDrawing {
 
         System.out.println("Paragraph 7:");
         Drawing third = new Drawing(10, 10, '.');
-        third.drawCircle(5, 5, 3, '*');
+        third.drawCircle(4, 4, 3, '*');
         third.printForCircle();
 
         System.out.println("Paragraph 10:");
