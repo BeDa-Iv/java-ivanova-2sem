@@ -1,8 +1,8 @@
 public class Drawing {
 
-    private char[][] picture;
-    private int stroka;
-    private int stolbets;
+    private final char[][] picture;
+    private final int stroka;
+    private final int stolbets;
 
     Drawing(int m, int n, char symbol) {
         picture = new char[m][n];
@@ -34,13 +34,13 @@ public class Drawing {
 
     public void drawVerticalLine(int y, int x1, int x2, char symbol) {
         for (int i = x1; i <= x2; i++) {
-            setPoint(i, y, symbol);
+            picture[i][y] = symbol;
         }
     }
 
     public void drawHorizontalLine(int x, int y1, int y2, char symbol) {
         for (int i = y1; i <= y2; i++) {
-            setPoint(x, i, symbol);
+            picture[x][i] = symbol;
         }
     }
 
@@ -55,7 +55,7 @@ public class Drawing {
         for (int i = x0 - r; i <= x0 + r; i++) {
             for (int j = y0 - r; j <= y0 + r; j++) {
                 if (((x0 - i) * (x0 - i)) + ((y0 - j) * (y0 - j)) <= (r * r)) {
-                    setPoint(i, j, symbol);
+                    picture[i][j] = symbol;
                 }
             }
         }
@@ -63,14 +63,8 @@ public class Drawing {
 
     public void draw(int x, int y, Drawing d) {
         for (int i = 0; i < d.stolbets; i++) {
-            for (int j = 0; j < d.stroka; j++) {
-                picture[x + i][y + j] = d.picture[i][j];
-            }
+            if (d.stroka >= 0) { System.arraycopy(d.picture[i], 0, picture[x + i], y, d.stroka); }
         }
-    }
-
-    private void setPoint(int x, int y, char symbol) {
-        picture[x][y] = symbol;
     }
 
 }

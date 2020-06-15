@@ -4,24 +4,20 @@ public class ExperimentsWithDrawing {
         System.out.println("Paragraph 1:");
         Drawing first = new Drawing(4, 6, '.');
         first.print();
-
         System.out.println("Paragraph 4.1:");
         first.drawVerticalLine(5, 1, 3, '*' );
         first.print();
         System.out.println("Paragraph 4.2:");
         first.drawHorizontalLine(1, 2, 5, '*');
         first.print();
-
         System.out.println("Paragraph 5:");
         Drawing second = new Drawing(5, 5, '.');
         second.drawRectangle(1, 1, 4, 3, '*');
         second.print();
-
         System.out.println("Paragraph 7:");
         Drawing third = new Drawing(10, 10, '.');
         third.drawCircle(4, 4, 3, '*');
         third.printForCircle();
-
         System.out.println("Paragraph 10:");
         Drawing fourth = new Drawing(20, 20, '.');
         Drawing h = house();

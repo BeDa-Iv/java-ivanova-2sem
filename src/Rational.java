@@ -1,8 +1,8 @@
 public class Rational {
     private static final Rational ZERO = new Rational(0);
     private static final Rational ONE = new Rational(1,1);
-    private int n;
-    private int d;
+    private final int n;
+    private final int d;
 
     public static Rational add(Rational r1, Rational r2) {
         return new Rational(r1.n * r2.d + r2.n * r1.d, r2.d * r1.d);
@@ -20,7 +20,12 @@ public class Rational {
         return new Rational(r1.n * r2.d, r2.n * r1.d);
     }
 
-    public Rational (int n, int d) {
+    private static int gcd(int m, int n) {
+        if (0 == n) { return m; }
+        else return gcd(n, m % n);
+    }
+
+    public Rational(int n, int d) {
         if (d == 0) {
             throw new ArithmeticException("denominator is zero");
         }
@@ -35,25 +40,17 @@ public class Rational {
         this.d = d;
     }
 
-    public Rational (int n) {
+    public Rational(int n) {
         this.n = n;
         this.d = 1;
     }
 
-    public int getN() {
-        return n;
-    }
-
-    public int getD() {
-        return d;
-    }
-
     public String toString() {
         if (d == 1) {
-            return (this.n + "");
+            return this.n + "";
         }
         else {
-            return (this.n + "/" + this.d);
+            return this.n + "/" + this.d;
         }
     }
 
@@ -119,9 +116,12 @@ public class Rational {
         this.d = d;
     } */
 
-    private static int gcd(int m, int n) {
-        if (0 == n) { return m; }
-        else return gcd(n, m % n);
+    public int getN() {
+        return n;
+    }
+
+    public int getD() {
+        return d;
     }
 
 }

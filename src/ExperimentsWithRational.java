@@ -7,7 +7,6 @@ public class ExperimentsWithRational {
         System.out.println(ex1.toString());
         System.out.println(ex2.toString());
         System.out.println(ex3.toString());
-
         System.out.println(ex1.toDouble());
         System.out.println(ex2.toDouble());
         System.out.println(ex3.toDouble());
@@ -43,7 +42,6 @@ public class ExperimentsWithRational {
         System.out.println(findSum(1));
         System.out.println(findSum(7));
         System.out.println(findSum(20));
-
         System.out.println(n3.getN());
         System.out.println(n3.getD());
     }

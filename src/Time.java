@@ -1,8 +1,8 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 public class Time {
-    int hours;
-    int minutes;
+    private final int hours;
+    private final int minutes;
 
     public Time(int hours, int minutes) {
         this.hours = hours;
@@ -13,19 +13,19 @@ public class Time {
         return (this.hours + ":" + this.minutes);
     }
 
-    boolean isDay() {
+    public boolean isDay() {
         return hours >= 12 & hours <= 16;
     }
 
-    boolean isMorning() {
+    public boolean isMorning() {
         return hours >= 4 & hours <= 11;
     }
 
-    boolean isEvening() {
+    public boolean isEvening() {
         return hours >= 17 & hours <= 23;
     }
 
-    boolean isNight() {
+    public boolean isNight() {
         return hours >= 0 & hours <= 3;
     }
 
