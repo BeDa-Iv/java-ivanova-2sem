@@ -1,3 +1,7 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class Transliterator {
 
     public static final char[] rus =  new char[]{'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'};
@@ -35,13 +39,15 @@ public class Transliterator {
         return res.toString();
     }
 
-    private String register(String s) {
-        if (s.length() < 1) {
-            return s;
-        }
-        else {
-            return s.substring(0, 1).toUpperCase() + s.substring(1);
-        }
+    public void translateFile(String first, String second) throws IOException  {
+        String s = Files.readString(Paths.get(first));
+        s = translate(s);
+        byte[] strToBytes = s.getBytes();
+        Files.write(Paths.get(second), strToBytes);
     }
 
+    private String register(String s) {
+        if (s.length() < 1) { return s; }
+        else { return s.substring(0, 1).toUpperCase() + s.substring(1); }
+    }
 }
