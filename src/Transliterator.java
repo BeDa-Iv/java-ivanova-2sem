@@ -45,9 +45,7 @@ public class Transliterator {
 
     public void translateFile(String first, String second) throws IOException {
         String s = Files.readString(Paths.get(first));
-        s = translate(s);
-        byte[] strToBytes = s.getBytes();
-        Files.write(Paths.get(second), strToBytes);
+        Files.writeString(Paths.get(second), translate(s));
     }
 
     private String register(String s) {
